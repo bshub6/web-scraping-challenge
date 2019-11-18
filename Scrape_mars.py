@@ -1,6 +1,9 @@
-from splinter import Browser
-from bs4 import BeautifulSoup
 
+import time
+import pandas as pd
+from bs4 import BeautifulSoup
+from splinter import Browser
+from idlelib import browser
 
 def init_browser():
     # @NOTE: Replace the path with your actual path to the chromedriver
@@ -50,7 +53,7 @@ mars_weather = tweets.find('p', class_="tweet-text").text
 print(mars_weather)
 
 #Mars Fact Scraping
-ars_facts_url ="https://space-facts.com/mars/"
+mars_facts_url ="https://space-facts.com/mars/"
 browser.visit(mars_facts_url)
 
 mars_data = pd.read_html(mars_facts_url)
@@ -89,5 +92,6 @@ for link in links:
     print(img_dict['img_url'])
         
     hemisphere_image_urls.append(img_dict)
-   
-return  hemisphere_image_urls
+       
+        
+    return hemisphere_image_urls
